@@ -33,12 +33,12 @@ router.get('/:fileId', async (req, res, next) => {
 			const bucket = admin.storage().bucket();
 			const fileRef = bucket.file(fileData.name);
 
-			const [originalUrl] = await fileRef.getSignedUrl({
+			[url] = await fileRef.getSignedUrl({
 				action: 'read',
 				expires: Date.now() + 20 * 60 * 1000,
 			});
 
-			cache.set(fileId, { fileData, originalUrl }, 20 * 60);
+			cache.set(fileId, { fileData, originalUrl: url }, 20 * 60);
 		}
 
 		if (req.query.hasOwnProperty('json')) {
