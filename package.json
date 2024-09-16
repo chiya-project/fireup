@@ -1,0 +1,39 @@
+{
+  "name": "fireup",
+  "version": "1.0.0",
+  "description": "Uploader File Using Firebase Storage",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chiya-project/fireup.git"
+  },
+  "keywords": [
+    "firebase",
+    "storage",
+    "uploader"
+  ],
+  "author": {
+    "name": "Dika Ardianta",
+    "email": "mail@dikaardnt.com",
+    "url": "https://github.com/DikaArdnt"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/chiya-project/fireup/issues"
+  },
+  "homepage": "https://github.com/chiya-project/fireup#readme",
+  "dependencies": {
+    "axios": "^1.7.7",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "file-type": "^19.5.0",
+    "firebase-admin": "^12.5.0",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.5-lts.1",
+    "node-cache": "^5.1.2"
+  }
+}

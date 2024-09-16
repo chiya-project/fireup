@@ -1,0 +1,139 @@
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+	font-family: 'Poppins', sans-serif;
+}
+
+body {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	min-height: 100vh;
+	background: #202124;
+}
+
+.wrapper {
+	width: 430px;
+	padding: 30px;
+	background: #303134;
+	border: 2px dashed #5f6368;
+	border-radius: 14px;
+	box-shadow: 8px 20px 28px rgba(0, 0, 0, 0.2);
+}
+
+.wrapper header {
+	color: #6990f2;
+	font-size: 27px;
+	font-weight: 600;
+	text-align: center;
+}
+
+form {
+	height: 167px;
+	display: flex;
+	margin: 30px 0;
+	cursor: pointer;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+	background: #303134;
+	border-radius: 5px;
+	border: 2px dashed #6990f2;
+}
+
+form :where(i, p) {
+	color: #6990f2;
+}
+
+form i {
+	font-size: 50px;
+}
+
+form p {
+	font-size: 16px;
+	margin-top: 15px;
+}
+
+.row {
+	background: #202124;
+	border: 2px dashed #5f6368;
+	margin-bottom: 10px;
+	list-style: none;
+	padding: 15px 20px;
+	border-radius: 5px;
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+}
+
+.row i {
+	font-size: 30px;
+	color: #6990f2;
+}
+
+.details {
+	display: flex;
+	align-items: left;
+}
+
+.details span {
+	font-size: 14px;
+	color: #6990f2;
+}
+
+.row .content {
+	width: 100%;
+	margin-left: 15px;
+}
+
+.progress .progress-bar {
+	height: 6px;
+	width: 100%;
+	background: #6990f2;
+	margin-bottom: 4px;
+	border-radius: 30px;
+}
+
+.progress-bar .progress {
+	height: 100%;
+	width: 0%;
+	background: #6990f2;
+	border-radius: inherit;
+}
+
+.uploaded {
+	max-height: 230px;
+	overflow-y: scroll;
+}
+
+.uploaded::-webkit-scrollbar {
+	width: 0px;
+}
+
+.content {
+	display: flex;
+	align-items: center;
+}
+.content .details {
+	display: flex;
+	margin-left: 15px;
+	flex-direction: column;
+}
+
+.content .details .size {
+	font-size: 11px;
+	color: #404040;
+}
+
+footer {
+	margin-top: 20px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+}
+
+footer p {
+	font-size: smaller;
+	color: #6990f2;
+}
