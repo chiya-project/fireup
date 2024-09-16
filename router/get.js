@@ -16,10 +16,10 @@ router.get('/:fileId', async (req, res, next) => {
 
 		let fileData;
 		let url;
-		if (cache.has(fileId)) {
+		if (cache.has(fileId) && cache.get(fileId).originalUrl) {
 			let cachedData = cache.get(fileId);
 			fileData = cachedData.fileData;
-			url = BASE_URL + '/' + cachedData.hash;
+			url = cachedData.originalUrl;
 		} else {
 			const filesRef = admin.database().ref('/files/' + fileId);
 			const fileSnapshot = await filesRef.once('value');
@@ -33,17 +33,17 @@ router.get('/:fileId', async (req, res, next) => {
 			const bucket = admin.storage().bucket();
 			const fileRef = bucket.file(fileData.name);
 
-			[url] = await fileRef.getSignedUrl({
+			const [originalUrl] = await fileRef.getSignedUrl({
 				action: 'read',
 				expires: Date.now() + 20 * 60 * 1000,
 			});
 
-			cache.set(fileId, { fileData, url }, 20 * 60);
+			cache.set(fileId, { fileData, originalUrl }, 20 * 60);
 		}
 
 		if (req.query.hasOwnProperty('json')) {
 			if (fileData.userAddress) delete fileData.userAddress;
-			return res.status(200).json({ ...fileData, url });
+			return res.status(200).json({ ...fileData, url: `${BASE_URL}/${fileId}` });
 		}
 
 		const response = await axios.get(url, {
